@@ -47,12 +47,7 @@ int main(int argc, char *argv[]){
             printf("Connected client %d\n", i + 1);
         
         while((str_len = read(clnt_sock, message, BUF_SIZE)) != 0){
-            message[str_len-1] = 'x';
-            message[str_len] = '\n';
-            message[str_len + 1] = 0;
-            write(clnt_sock, message, str_len+2);
-            printf("%s",message);
-            for(int i = 0 ; i < BUF_SIZE; i++) message[i] = 0;
+            write(clnt_sock, message, str_len);
         }
             
         
